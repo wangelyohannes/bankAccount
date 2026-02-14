@@ -1,14 +1,11 @@
 class BankAccount:
-    # 1) Class attribute: Title of the bank
     bank_title = "Bank Of Dressrosa"
 
-    # 2) Instance attributes
     def __init__(self, customer_name, current_balance, minimum_balance):
         self.customer_name = customer_name
         self.current_balance = float(current_balance)
         self.minimum_balance = float(minimum_balance)
 
-    # 3) Methods
     def deposit(self, amount):
         amount = float(amount)
         if amount <= 0:
@@ -25,7 +22,6 @@ class BankAccount:
 
         remaining_balance = self.current_balance - amount
 
-        # 4) Add validation: if remaining balance < minimum balance, cannot withdraw
         if remaining_balance < self.minimum_balance:
             print(
                 f"Withdrawal denied: remaining balance would be ${remaining_balance:.2f}, "
@@ -46,11 +42,9 @@ class BankAccount:
         print("====================\n")
 
 
-# 5) Create at least two different instances to make sure it works
 account1 = BankAccount("Wandering Yonko", 500, 100)
 account2 = BankAccount("Big Tuna", 300, 50)
 
-# --- Tests for account1 and account2 ---
 account1.print_customer_information()
 account1.withdraw(450)
 account1.deposit(20)
